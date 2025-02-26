@@ -1,10 +1,9 @@
 import numpy as np
-from collections import deque
 
 class BaldeTinta:
     # https://www.geeksforgeeks.org/flood-fill-algorithm/
     # peguei daqui
-    
+        
     @staticmethod
     def DFS_Pilha(matriz:np.ndarray[int],linha:int,coluna:int,novaCor:int) -> None:
         totalLinhas:int = len(matriz)
@@ -12,19 +11,18 @@ class BaldeTinta:
         
         corAntiga:int = matriz[linha][coluna]
         
-        pilha:deque[int] = deque([(linha,coluna)])
+        pilha:list[tuple[int, int]] = [(linha, coluna)]
         
         # explora as posições embaixo, emcima, direita e esquerda
         vizinhosDe4:list[tuple[int,int]] = [(1,0),(-1,0),(0,1),(0,-1)]
         
         # vizinhosDe8 = [(1, 0), (-1, 0), (0, 1), (0, -1),  # Horizontais e verticais
         #                 (1, 1), (-1, -1), (-1, 1), (1, -1)]  # Diagonais
-
         
         matriz[linha][coluna] = novaCor
         
         while pilha:
-            x, y = pilha.popleft()
+            x, y = pilha.pop()
             
             for direcaoX,direcaoY in vizinhosDe4:
                 nX:int = x + direcaoX

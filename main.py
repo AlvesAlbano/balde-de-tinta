@@ -11,7 +11,7 @@ def install_requirements():
         print("Falha ao instalar os pacotes. Verifique o arquivo requirements.txt.")
 
 if __name__ == '__main__':
-    install_requirements()
+    # install_requirements()
     
     matrizTeste:np.ndarray[int] = np.array([
         [0, 1, 1, 0],
