@@ -1,6 +1,6 @@
-import numpy as np
-from BuscaLargura import BuscaLargura
+from BaldeTinta import BaldeTinta
 
+import numpy as np
 import subprocess
 import sys
 
@@ -12,12 +12,18 @@ def install_requirements():
 
 if __name__ == '__main__':
     install_requirements()
-    matrizTest:np.ndarray[int] = np.array([
+    
+    matrizTeste:np.ndarray[int] = np.array([
         [0, 1, 1, 0],
         [1, 0, 1, 1],
         [1, 1, 0, 1],
         [0, 1, 1, 0]
     ])
     
-    BuscaLargura.BFS(matrizTest)
-    print("teste")
+    linha:int = 0
+    coluna:int = 1
+    novaCor:int = 999
+    
+    print(f"Antes: \n{matrizTeste}")
+    
+    print(f"Depois: \n{BaldeTinta.DFS_Pilha(matrizTeste,linha,coluna,novaCor)}")
