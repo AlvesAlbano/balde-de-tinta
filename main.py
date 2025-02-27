@@ -1,4 +1,5 @@
 from BaldeTinta import BaldeTinta
+from Matriz import Matriz
 
 import numpy as np
 import subprocess
@@ -10,20 +11,23 @@ def install_requirements():
     except subprocess.CalledProcessError:
         print("Falha ao instalar os pacotes. Verifique o arquivo requirements.txt.")
 
+def main():
+    install_requirements()
+
+    arquivo = "data/UNIFOR_grayscale.txt"
+    
+    matriz = Matriz(arquivo)
+    
+    linha = 0
+    coluna = 0
+    nova_cor = 8
+    
+    print("Antes:")
+    matriz.print_matriz()
+    
+    matriz.matriz = BaldeTinta.DFS_Pilha(matriz.matriz, linha, coluna, nova_cor)
+    print("Depois:")
+    matriz.print_matriz()         
+                         
 if __name__ == '__main__':
-    # install_requirements()
-    
-    matrizTeste:np.ndarray[int] = np.array([
-        [0, 1, 1, 0],
-        [1, 0, 1, 1],
-        [1, 1, 0, 1],
-        [0, 1, 1, 0]
-    ])
-    
-    linha:int = 0
-    coluna:int = 1
-    novaCor:int = 999
-    
-    print(f"Antes: \n{matrizTeste}")
-    
-    print(f"Depois: \n{BaldeTinta.DFS_Pilha(matrizTeste,linha,coluna,novaCor)}")
+    main()

@@ -13,11 +13,11 @@ class BaldeTinta:
         
         pilha:list[tuple[int, int]] = [(linha, coluna)]
         
-        # explora as posições embaixo, emcima, direita e esquerda
+        # explora as posições embaixo, em cima, direita e esquerda
         vizinhosDe4:list[tuple[int,int]] = [(1,0),(-1,0),(0,1),(0,-1)]
         
         # vizinhosDe8 = [(1, 0), (-1, 0), (0, 1), (0, -1),  # Horizontais e verticais
-        #                 (1, 1), (-1, -1), (-1, 1), (1, -1)]  # Diagonais
+        #                (1, 1), (-1, -1), (-1, 1), (1, -1)]  # Diagonais
         
         matriz[linha][coluna] = novaCor
         
