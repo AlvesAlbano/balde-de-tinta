@@ -5,7 +5,7 @@ class BaldeTinta:
     # peguei daqui
         
     @staticmethod
-    def DFS_Pilha(matriz:np.ndarray[int],linha:int,coluna:int,novaCor:int) -> None:
+    def DFS_Pilha(matriz:np.ndarray[int],linha:int,coluna:int,novaCor:int) -> np.ndarray[int]:
         totalLinhas:int = len(matriz)
         colunas:int = len(matriz[0])
         

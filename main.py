@@ -1,9 +1,10 @@
 from BaldeTinta import BaldeTinta
 from Matriz import Matriz
+from Imagem import Imagem
 
-import numpy as np
 import subprocess
 import sys
+import cv2
 
 def install_requirements():
     try:
@@ -12,22 +13,43 @@ def install_requirements():
         print("Falha ao instalar os pacotes. Verifique o arquivo requirements.txt.")
 
 def main():
-    install_requirements()
+    # install_requirements()
 
-    arquivo = "data/UNIFOR_grayscale.txt"
+    caminhoArquivo:str = "imagens/UNIFOR_grayscale.txt"
+    # caminhoArquivo:str = "imagens/imagem_teste.txt"
+    # caminhoArquivo:str = "imagens/UNIFOR_grayscale.png"
     
-    matriz = Matriz(arquivo)
+    imagem:Imagem = Imagem(caminhoArquivo)
+    # print(imagem.converteImagemEmMatriz())
+    imagem.verImagem()
     
-    linha = 0
-    coluna = 0
-    nova_cor = 8
     
-    print("Antes:")
-    matriz.print_matriz()
+    # linha:int = 292
+    # coluna:int = 383
+    # nova_cor:int = 0
     
-    matriz.matriz = BaldeTinta.DFS_Pilha(matriz.matriz, linha, coluna, nova_cor)
-    print("Depois:")
-    matriz.print_matriz()         
+    # matrizImagem = np.loadtxt(caminhoArquivo)
+    # # print(f"Antes \n{matrizImagem}")
+    # # print(f"Depois \n{BaldeTinta.DFS_Pilha(matrizImagem,linha,coluna,nova_cor)}")
+    
+    # novaImagem = BaldeTinta.DFS_Pilha(matrizImagem,linha,coluna,nova_cor)
+    
+    # imagem:Imagem = Imagem("teste.txt")
+    # imagem.verImagem()
+    
+    # Imagem.verImagem(novaImagem)
+    
+    # Imagem.verImagem(caminhoArquivo)
+    
+    # arquivo:str = "data/imagem_teste.txt"
+    # matriz:Matriz = Matriz(arquivo)
+    
+    # print("Antes:")
+    # matriz.print_matriz()
+    
+    # matriz.matriz = BaldeTinta.DFS_Pilha(matriz.matriz, linha, coluna, nova_cor)
+    # print("Depois:")
+    # matriz.print_matriz()         
                          
 if __name__ == '__main__':
     main()
