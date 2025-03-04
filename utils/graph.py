@@ -88,7 +88,8 @@ class Graph:
                 self.set_color(node, matrix[i][j])  # Salva a cor do pixel
 
                 # Conectar apenas vizinhos com a mesma cor
-                neighbors = [(0, 1), (1, 0), (0, -1), (-1, 0)]  # Direções: direita, abaixo, esquerda, acima
+                #neighbors = [(0, 1), (1, 0), (0, -1), (-1, 0)]  # Direções: direita, abaixo, esquerda, acima
+                neighbors = [(0, 1), (1, 0), (0, -1), (-1, 0), (1, 1), (-1, -1), (1, -1), (-1, 1)] # + Diagonais
 
                 for di, dj in neighbors:
                     ni, nj = i + di, j + dj
