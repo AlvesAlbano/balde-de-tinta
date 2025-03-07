@@ -1,35 +1,19 @@
 import numpy as np
+from DFS import dfs
+from utils.graph import Graph
 
 class BaldeTinta:
-    # https://www.geeksforgeeks.org/flood-fill-algorithm/
-    # peguei daqui
-        
+    
     @staticmethod
-    def DFS_Pilha(matriz:np.ndarray[int],linha:int,coluna:int,novaCor:int) -> np.ndarray[int]:
-        totalLinhas:int = len(matriz)
-        colunas:int = len(matriz[0])
+    def FloodFill(grafo, v_inicial, nova_cor):
+        """ Converte a matriz em grafo, executa o DFS e retorna o grafo modificado """
         
-        corAntiga:int = matriz[linha][coluna]
-        
-        pilha:list[tuple[int, int]] = [(linha, coluna)]
-        
-        # explora as posições embaixo, em cima, direita e esquerda
-        vizinhosDe4:list[tuple[int,int]] = [(1,0),(-1,0),(0,1),(0,-1)]
-        
-        # vizinhosDe8 = [(1, 0), (-1, 0), (0, 1), (0, -1),  # Horizontais e verticais
-        #                (1, 1), (-1, -1), (-1, 1), (1, -1)]  # Diagonais
-        
-        matriz[linha][coluna] = novaCor
-        
-        while pilha:
-            x, y = pilha.pop()
-            
-            for direcaoX,direcaoY in vizinhosDe4:
-                nX:int = x + direcaoX
-                nY:int = y + direcaoY
-                
-                if 0 <= nX < totalLinhas and 0 <= nY < colunas and matriz[nX][nY] == corAntiga:
-                    matriz[nX][nY] = novaCor
-                    pilha.append((nX,nY))
-        
-        return matriz
+        cor_inicial = grafo.get_color(v_inicial)
+
+        if cor_inicial == nova_cor:
+            return grafo  # Se já for da cor desejada, não precisa modificar
+
+        visitados = set()
+        dfs(grafo, v_inicial, cor_inicial, nova_cor, visitados)
+
+        return grafo
