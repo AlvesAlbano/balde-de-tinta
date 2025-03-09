@@ -5,7 +5,7 @@ from utils.graph import Graph
 from PIL import Image
 
 class Imagem:
-    nomeJanela: str = "imagem"
+    nomeJanela: str = "Editor de Imagens"
     
     def __init__(self, caminhoArquivo: str):
         self.caminhoArquivo = caminhoArquivo
@@ -21,7 +21,7 @@ class Imagem:
 
             # Realiza a operação de preenchimento (DFS no grafo)
             v_inicial = y * len(self.matrizImagem[0]) + x
-            grafo_modificado = BaldeTinta.FloodFill(self.grafo, v_inicial, 128)  # 128 = nova cor (cinza)
+            grafo_modificado = BaldeTinta.FloodFill(self.grafo, v_inicial, 0)  # 0 = nova cor (preto)
             
             # Atualiza a matriz da imagem com as novas cores do grafo
             self.atualizaImagem(grafo_modificado)

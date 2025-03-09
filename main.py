@@ -16,9 +16,8 @@ def install_requirements():
 def main():
     # install_requirements()
 
-    caminhoArquivo:str = "imagens/UNIFOR_grayscale.txt"
+    caminhoArquivo:str = "imagens/UNIFOR_logo_grayscale.txt"
     # caminhoArquivo:str = "imagens/imagem_teste.txt"
-    #caminhoArquivo:str = "imagens/UNIFOR_grayscale.png"
     
     imagem:Imagem = Imagem(caminhoArquivo)
     # print(imagem.converteImagemEmMatriz())
