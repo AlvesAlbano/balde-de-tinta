@@ -1,14 +1,4 @@
-"""
-A generic stack implemented using a singly linked list.
-
-% more tobe.txt 
-to be or not to - be - - that - - - is
-
-% python stack.py < tobe.txt
-to be not that or be (2 left on stack)
-"""
-
-from linklist import Node, LinkIterator
+from utils.linklist import Node, LinkIterator
 
 
 class Stack:
